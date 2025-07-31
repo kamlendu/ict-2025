@@ -1,3 +1,8 @@
+servlets/Target.class
+model/DataLogic.class
 servlets/HelloServlet.class
-samplewebapp/resources/JakartaEE10Resource.class
+servlets/EmpServlet.class
 samplewebapp/JakartaRestConfiguration.class
+servlets/BookServlet.class
+samplewebapp/resources/JakartaEE10Resource.class
+model/Employee.class
