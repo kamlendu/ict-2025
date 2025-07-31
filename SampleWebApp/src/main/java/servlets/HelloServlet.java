@@ -71,7 +71,7 @@ public class HelloServlet extends HttpServlet {
             if(destination.equals("target"))
                 response.sendRedirect("http://localhost:8080/SampleWebApp/Target");
             
-            response.
+//            response.
             
             String names[] = request.getParameterValues("names");
             
