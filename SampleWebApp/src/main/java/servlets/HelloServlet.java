@@ -17,7 +17,7 @@ import java.util.Enumeration;
  *
  * @author kamlendu
  */
-@WebServlet(name = "HelloServlet", urlPatterns = {"/hello"})
+@WebServlet(name = "HelloServlet", urlPatterns = {"/HelloServlet"})
 public class HelloServlet extends HttpServlet {
 
     String destination = "target";
