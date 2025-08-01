@@ -12,8 +12,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.Collection;
-import model.DataLogic;
 import model.Employee;
+import model.OmptimizedLogic;
 
 /**
  *
@@ -43,7 +43,7 @@ public class EmpServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             
-            DataLogic dl = new DataLogic();
+            OmptimizedLogic dl = new OmptimizedLogic();
             
            // dl.insertEmployee(22, "Abraham", 5200.00);
            dl.removeEmployee(22);
@@ -54,6 +54,9 @@ public class EmpServlet extends HttpServlet {
             {
                  out.println("<br/>"+ e.getEmpno()+"     "+ e.getEname() + "     "+ e.getSalary());
             }
+           
+            out.println("<br/>Groos Total = "+ dl.getGrossSal()+ "  Max Sal = "+ dl.getMaxSal());
+            
             
             
             out.println("<h1>Servlet EmpServlet at " + request.getContextPath() + "</h1>");

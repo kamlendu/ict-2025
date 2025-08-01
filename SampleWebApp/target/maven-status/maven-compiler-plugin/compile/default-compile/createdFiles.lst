@@ -4,5 +4,6 @@ servlets/HelloServlet.class
 servlets/EmpServlet.class
 samplewebapp/JakartaRestConfiguration.class
 servlets/BookServlet.class
+model/OmptimizedLogic.class
 samplewebapp/resources/JakartaEE10Resource.class
 model/Employee.class
