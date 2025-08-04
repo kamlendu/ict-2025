@@ -1,8 +1,12 @@
 servlets/Target.class
-model/DataLogic.class
 servlets/HelloServlet.class
+servlets/Sertvlet1.class
 servlets/EmpServlet.class
 samplewebapp/JakartaRestConfiguration.class
+servlets/TestServlet.class
+servlets/Servlet2.class
+model/DataLogic.class
+servlets/CookieServlet.class
 servlets/BookServlet.class
 model/OmptimizedLogic.class
 samplewebapp/resources/JakartaEE10Resource.class
