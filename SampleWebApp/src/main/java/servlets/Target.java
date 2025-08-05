@@ -4,6 +4,7 @@
  */
 package servlets;
 
+import jakarta.servlet.ServletContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -39,6 +40,12 @@ public class Target extends HttpServlet {
             out.println("<title>Servlet Target</title>");
             out.println("</head>");
             out.println("<body>");
+            
+            ServletContext ctx = request.getServletContext();
+            out.println("<h1>Company : "+ ctx.getAttribute("company"));
+              out.println("<h1>Database : "+ ctx.getAttribute("database"));
+          
+            
             out.println("<h1>Servlet Target at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");

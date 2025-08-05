@@ -4,6 +4,7 @@
  */
 package servlets;
 
+import jakarta.servlet.ServletContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -11,7 +12,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.Enumeration;
 
 /**
  *
@@ -63,22 +63,22 @@ public class HelloServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
            
-             out.println("<h3>"+ request.getQueryString()+"</h3>"); 
-             out.println("<h3>"+ request.getMethod()+"</h3>"); 
-            out.println("<h3>"+ request.getRemoteUser()+"</h3>"); 
-            out.println("<h3>"+ request.getRemoteAddr()+"</h3>"); 
-            
-            if(destination.equals("target"))
-                response.sendRedirect("http://localhost:8080/SampleWebApp/Target");
-            
+//             out.println("<h3>"+ request.getQueryString()+"</h3>"); 
+//             out.println("<h3>"+ request.getMethod()+"</h3>"); 
+//            out.println("<h3>"+ request.getRemoteUser()+"</h3>"); 
+//            out.println("<h3>"+ request.getRemoteAddr()+"</h3>"); 
+//            
+//            if(destination.equals("target"))
+//                response.sendRedirect("http://localhost:8080/SampleWebApp/Target");
+//            
 //            response.
             
-            String names[] = request.getParameterValues("names");
-            
-            for(int i=0; i< names.length;i++)
-               out.println("<h3>"+ names[i]+"</h3>"); 
-            
-            
+//            String names[] = request.getParameterValues("names");
+//            
+//            for(int i=0; i< names.length;i++)
+//               out.println("<h3>"+ names[i]+"</h3>"); 
+//            
+//            
             
             
             
@@ -94,9 +94,13 @@ public class HelloServlet extends HttpServlet {
 //            }
 //            
             
+        ServletContext ctx = request.getServletContext();
+        
+        ctx.setAttribute("company", "ABC India Ltd.");
+
+
             
-            
-//            out.println("<h1>Hello World of Servlets from "+user+"</h1>");
+          out.println("<h1>Hello World of Servlets </h1>");
             out.println("</body>");
             out.println("</html>");
         }
