@@ -4,7 +4,6 @@
  */
 package servlets;
 
-import jakarta.servlet.ServletContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -12,6 +11,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -62,6 +62,7 @@ public class HelloServlet extends HttpServlet {
             out.println("<title>Servlet HelloServlet</title>");
             out.println("</head>");
             out.println("<body>");
+            HttpSession session = request.getSession(true);
            
 //             out.println("<h3>"+ request.getQueryString()+"</h3>"); 
 //             out.println("<h3>"+ request.getMethod()+"</h3>"); 
@@ -94,9 +95,9 @@ public class HelloServlet extends HttpServlet {
 //            }
 //            
             
-        ServletContext ctx = request.getServletContext();
-        
-        ctx.setAttribute("company", "ABC India Ltd.");
+//        ServletContext ctx = request.getServletContext();
+//        
+//        ctx.setAttribute("company", "ABC India Ltd.");
 
 
             

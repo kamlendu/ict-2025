@@ -42,8 +42,8 @@ public class Target extends HttpServlet {
             out.println("<body>");
             
             ServletContext ctx = request.getServletContext();
-            out.println("<h1>Company : "+ ctx.getAttribute("company"));
-              out.println("<h1>Database : "+ ctx.getAttribute("database"));
+            out.println("<h1>Company : "+ ctx.getInitParameter("company"));
+              out.println("<h1>Database : "+ ctx.getInitParameter("database"));
           
             
             out.println("<h1>Servlet Target at " + request.getContextPath() + "</h1>");
