@@ -85,9 +85,9 @@ public class Employee implements Serializable {
     
     public String getError(String field)
     {
-        String err = errors.get(field.trim()).toString();
+        Object err = errors.get(field.trim());
         
-        return (err==null)?"":err;
+        return (err!=null)?err.toString():"";
         
     }
     
