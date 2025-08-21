@@ -50,7 +50,20 @@
        <h3> X is equal to 50
    </c:if>
                 
-                
+           <c:choose>
+               
+               <c:when test="${x>50}">
+                   <h3> Switch Case - X is greater than 50
+               </c:when>
+               
+              <c:when test="${x<50}">
+                   <h3> Switch Case - X is less than 50
+               </c:when> 
+                       <c:otherwise>
+                           <h3>    Switch Case - X is equal to 50     </h3>
+                       </c:otherwise>  
+               
+           </c:choose>               
                 
                 
             
