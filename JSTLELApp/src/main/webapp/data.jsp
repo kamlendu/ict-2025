@@ -14,14 +14,14 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <sql:setDataSource dataSource="jdbc/mysql"/>
+        <sql:setDataSource dataSource="jdbc/ictdata"/>
         
-        
+       
         <sql:update var="insert">
             insert into employee values(?,?,?)
-            <sql:param value="22"/>
-            <sql:param value="Prathamesh"/>
-            <sql:param value="15000"/>           
+            <sql:param value="23"/>
+            <sql:param value="Smit"/>
+            <sql:param value="10000"/>           
         </sql:update>
   
             
