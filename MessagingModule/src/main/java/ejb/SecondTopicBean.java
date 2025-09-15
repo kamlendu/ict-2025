@@ -4,8 +4,6 @@
  */
 package ejb;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import jakarta.ejb.ActivationConfigProperty;
 import jakarta.ejb.MessageDriven;
 import jakarta.jms.JMSException;
@@ -15,7 +13,7 @@ import jakarta.jms.TextMessage;
 
 /**
  *
- * @author root
+ * @author kamlendu
  */
 @MessageDriven(activationConfig = {
     @ActivationConfigProperty(propertyName = "clientId", propertyValue = "jms/icttopic2"),
@@ -31,20 +29,17 @@ public class SecondTopicBean implements MessageListener {
     
     @Override
     public void onMessage(Message message) {
-        
-        String msg =null;
-    if(message instanceof TextMessage)
-    {
-            try {
-                
-                msg =  ((TextMessage) message).getText();
-                
-                System.out.println("SecondTopicBean has recieved the message " + msg);
-                
-            } catch (JMSException ex) {
-                Logger.getLogger(FirstQueueBean.class.getName()).log(Level.SEVERE, null, ex);
-            }
-    }
+          try {
+            TextMessage tmsg = (TextMessage)message;
+            
+            String msg = tmsg.getText();
+            
+            System.out.println("Message Recieved By SecondTopicBean :"+ msg );
+            
+            
+        } catch (JMSException ex) {
+           ex.printStackTrace();
+        }
     }
     
 }

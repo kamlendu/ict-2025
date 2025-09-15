@@ -4,26 +4,16 @@
  */
 package ejb;
 
-import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import jakarta.ejb.ActivationConfigProperty;
 import jakarta.ejb.MessageDriven;
-import jakarta.jms.Connection;
-import jakarta.jms.ConnectionFactory;
 import jakarta.jms.JMSException;
 import jakarta.jms.Message;
 import jakarta.jms.MessageListener;
-import jakarta.jms.MessageProducer;
-import jakarta.jms.Queue;
-import jakarta.jms.Session;
 import jakarta.jms.TextMessage;
-import javax.naming.Context;
-import javax.naming.InitialContext;
 
 /**
  *
- * @author root
+ * @author kamlendu
  */
 @MessageDriven(activationConfig = {
     @ActivationConfigProperty(propertyName = "clientId", propertyValue = "jms/icttopic1"),
@@ -39,28 +29,17 @@ public class FirstTopicBean implements MessageListener {
     
     @Override
     public void onMessage(Message message) {
-        
-        String msg =null;
-    if(message instanceof TextMessage)
-    {
-            try {
-                
-                msg =  ((TextMessage) message).getText();
-                
-                System.out.println("FirstTopicBean has recieved the message " + msg);
-                
-                
-                
-                
-                
-                
-                
-            } catch (JMSException ex) {
-                Logger.getLogger(FirstQueueBean.class.getName()).log(Level.SEVERE, null, ex);
-            }
+          try {
+            TextMessage tmsg = (TextMessage)message;
             
-           
-    }
+            String msg = tmsg.getText();
+            
+            System.out.println("Message Recieved By FirstTopicBean:"+ msg );
+            
+            
+        } catch (JMSException ex) {
+           ex.printStackTrace();
+        }
     }
     
 }
