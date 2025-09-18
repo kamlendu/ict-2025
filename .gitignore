@@ -3,3 +3,15 @@
 /JSPApp/target/
 /JSTLELApp/target/
 /EJBApp/target/
+/TestStates/target/
+/EJBModule1/nbproject/private/
+/TestEJBApp/target/
+/TestRemoteApp/target/
+/MessagingModule/nbproject/private/
+/MessagingModule/dist/
+/MessagingModule/build/
+/MessageClientApp/target/
+/MsgApp/target/
+/AsynchApp/target/
+/MessagingModule/target/
+/SingletonApp/target/
