@@ -42,19 +42,19 @@ public class TimerEJB implements TimerEJBRemote {
   //   Timer timer = ts.createSingleActionTimer(10000, new TimerConfig());
 
 //    SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm");
-//       Date date = sdf.parse("03/11/2025 12:22");
+ //      Date date = sdf.parse("09/19/2025 11:12");
 //        // System.out.println(date.toString());
-//      Timer timer1 = ts.createSingleActionTimer(date, new TimerConfig());
+//     Timer timer1 = ts.createSingleActionTimer(date, new TimerConfig());
 
-   //Timer intervalTimer= ts.createTimer(5000, 3000, null);
+//   Timer intervalTimer= ts.createTimer(5000, 3000, null);
 
-//       ScheduleExpression se = new ScheduleExpression();
-//       
-//       se.dayOfWeek("Tue");
-//       se.hour("0-17,23");
-//        se.minute("26");
-//       se.second("*/5");
-//      Timer scheduleTimer = ts.createCalendarTimer(se);
+        ScheduleExpression se = new ScheduleExpression();
+       
+       se.dayOfWeek("Fri");
+       se.hour("0-17,23");
+        se.minute("18");
+       se.second("*/5");
+      Timer scheduleTimer = ts.createCalendarTimer(se);
       }
        catch(Exception e) {
            e.printStackTrace();
