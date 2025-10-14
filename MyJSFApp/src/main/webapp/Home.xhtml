@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+        
+        <h:form>
+            <h:panelGrid columns="3" border="1">
+                
+                <h:outputLabel for="nm" value="Nameof Person"/>
+                <h:inputText id="nm" required="true" requiredMessage="Name is required" value="#{person.name}"/>
+                <h:message for="nm" style="color:red"/>
+                <h:outputLabel for="em" value="Email"/>
+                <h:inputText id="em" value="#{person.email}"/>
+                <h:message for="em" style="color:red"/>
+                <h:outputLabel for="sal" value="Salary"/>
+                <h:inputText id="sal" value="#{person.salary}">
+                    
+                    
+                    <f:validator  validatorId="salvalid"/>
+                </h:inputText>
+                <h:message for="sal" style="color:red"/>
+                <h:outputLabel for="phone" value="Phone"/>
+                <h:inputText id="phone" value="#{person.phone}"/>
+                <h:message for="phone" style="color:red"/>
+                <h:outputLabel for="gen" value="Gender"/>
+                <h:selectOneRadio id="gen" value="#{person.gender}">
+                    <f:selectItem itemLabel="Male" itemValue="Male"/>
+                      <f:selectItem itemLabel="FeMale" itemValue="FeMale"/>
+                </h:selectOneRadio>
+                <h:message for="gen" style="color:red"/>
+                <h:outputLabel for="city" value="City"/>
+                <h:selectOneMenu id="city" value="#{person.city}">
+                    <f:selectItem itemLabel="Surat" itemValue="Surat"/>
+                      <f:selectItem itemLabel="Vadodara" itemValue="Vadodara"/>
+                </h:selectOneMenu>
+                <h:message for="city" style="color:red"/>
+                 <h:outputLabel for="hobby" value="hobby"/>
+                 <h:selectManyCheckbox id="hobby" value="#{person.hobbies}">
+                    <f:selectItem itemLabel="Swimming" itemValue="Swimming"/>
+                      <f:selectItem itemLabel="Singing" itemValue="Singing"/>
+                 </h:selectManyCheckbox>
+                <h:message for="hobby" style="color:red"/>
+                
+                
+                
+                
+                
+                <h:commandButton id="sub" value="Show" action="#{person.show()}"/>
+                 
+                 <h:commandButton id="res" value="Reset"/>
+               
+                <h:message for="sub" style="color:red"/>     
+                
+                
+                
+                
+                
+                
+            </h:panelGrid>
+            
+            
+            
+        </h:form>
+        
+        
+        
+    </h:body>
+</html>
