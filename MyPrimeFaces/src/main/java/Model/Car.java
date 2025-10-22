@@ -16,6 +16,7 @@ import jakarta.enterprise.context.RequestScoped;
 public class Car 
 {
     private String model;
+    //private String model1;
     private int year;
     private String manufacturer;
     private String color;

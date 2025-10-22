@@ -10,7 +10,7 @@
         
         <h:form id="form">
             
-            <p:textEditor secure="false" id="editor" widgetVar="editor" value="#{editorBean.value}" />  
+            <p:textEditor secure="false" id="editor" widgetVar="editor" value="#{editorBean.value}" height="600" />  
             <h:panelGrid columns="3" style="margin-top:10px">  
                 <p:commandButton id="submitButton" value="Submit" update="display" oncomplete="dlg.show()" />  
                 <p:commandButton id="clearButton" type="button" value="Clear" onclick="editor.clear()"  />  
