@@ -1,0 +1,70 @@
+Steps of Certificate Creation
+
+default passsword for keystore is:   changeit
+
+1) Go to config directory of Payara
+
+cd /home/kamlendu/payar6.41/glassfish/domains/domain1/config
+
+2) Take the backup of Keystore.p12
+
+
+default password : changeit
+
+cp keystore.p12 keystore-backup.p12
+
+3) Delete the existing public private key pair which is stored as alias s1as
+
+keytool -delete -alias s1as -keystore keystore.p12
+
+4) Creating Public Private Key Pair with alias s1as
+
+ keytool -genkey -keyalg RSA -keysize 1024 -alias s1as -keystore keystore.p12 -validity 365
+
+5) create a public certificate file with .cer extention
+
+keytool -export -alias s1as -file kamlendu.cer -keystore keystore.p12
+
+6) Put the certificate in a trusted keystore i.e cacerts.p12 in payara
+
+keytool -import -alias kamlendu.com -file kamlendu.cer -keystore cacerts.p12
+
+If you want to extract public and private key pair files in .pem format we can use the following commands. 
+
+1) convert the tradition keystore keystore.p12 into PKCS (Public Key Cryptographic Standards) bases keystore
+
+keytool -importkeystore -srckeystore keystore.p12 -destkeystore mykeystore.p12 -srcstoretype p12 -deststoretype pkcs12
+
+2) Extract private key as .pem file
+openssl pkcs12 -in mykeystore.p12 -out serverprivatekey.pem
+
+3) Extract Public key as .pem file
+openssl pkcs12 -in mykeystore.p12 -out serverpublickey.pem
+
+
+Steps to generate own public private key pair with openssl
+
+1. download and install openssl. Create a folder where you want to store the keys. On commandline navigate to the created folder
+
+
+2. First, it is necessary to generate a base key to be signed:
+
+
+# openssl genrsa -out baseKey.pem
+
+
+3. From the base key generate the PKCS#8 private key:
+
+# openssl pkcs8 -topk8 -inform PEM -in baseKey.pem -out privateKey.pem -nocrypt
+
+
+4. Using the private key you could generate a public (and distributable) key
+
+# openssl rsa -in baseKey.pem -pubout -outform PEM -out publicKey.pem
+
+
+
+
+
+
+
